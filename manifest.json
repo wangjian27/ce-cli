@@ -4,32 +4,24 @@
   "description": "谷歌浏览器插件",
   "version": "0.0.1",
   "icons": {
-    "16": "img/coffeeBoy.jpg",
-    "48": "img/coffeeBoy.jpg",
-    "128": "img/coffeeBoy.jpg"
+    "16": "./img/coffeeBoy.png",
+    "48": "./img/coffeeBoy.png",
+    "128": "./img/coffeeBoy.png"
   },
   "background": {
-    "scripts": [
-      "event-page.js"
-    ],
+    "scripts": ["./js/event-page.js"],
     "persistent": false
   },
   "browser_action": {
     "default_title": "谷歌浏览器插件",
-    "default_popup": "popup.html",
-    "default_icon": "img/coffeeBoy.jpg"
+    "default_popup": "./html/popup.html",
+    "default_icon": "./img/coffeeBoy.png"
   },
   "content_scripts": [
     {
-      "matches": [
-        "*://*.baidu.com/*"
-      ],
-      "css": [
-        "css/content-scripts.css"
-      ],
-      "js": [
-        "js/content-scripts.js"
-      ],
+      "matches": ["<all_urls>"],
+      "css": ["./css/content-scripts.css"],
+      "js": ["./js/content-scripts.js"],
       "run_at": "document_end"
     }
   ],
@@ -37,22 +29,18 @@
     "contextMenus",
     "tabs",
     "notifications",
-    "webRequest",
+    // "webRequest",
     "webRequestBlocking",
     "storage",
     "http://*/*",
     "https://*/*"
   ],
-  "web_accessible_resources": [
-    "inject.js",
-    "fonts/*"
-  ],
+  "web_accessible_resources": ["./js/inject.js", "fonts/*"],
   "homepage_url": "https://www.baidu.com",
   "options_page": "options.html",
   "options_ui": {
-    "page": "options.html",
+    "page": "./html/options.html",
     "chrome_style": true
   },
-  "default_locale": "zh_CN",
   "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
 }
